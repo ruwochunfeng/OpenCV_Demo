@@ -25,6 +25,14 @@
 *.la
 *.a
 *.lib
+*.png
+*.pic
+*.cmake
+Makefile
+CMakeFiles/
+CMakeCache.txt
+bin/
+
 
 # Executables
 *.exe
