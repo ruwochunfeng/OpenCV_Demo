@@ -24,7 +24,8 @@ include_directories( /home/zhou/opencv/modules/video/include/)
 include_directories( /home/zhou/opencv/modules/videoio/include/)
 
 
-#add_executable(DisplayImage DisplayImage.cpp)
+
+add_executable(cvtColor cvtColor.cpp)
 add_executable(cvtColor cvtColor.cpp)
 
 target_link_libraries(cvtColor ${OpenCV_LIBS})
