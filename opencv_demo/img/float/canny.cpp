@@ -13,16 +13,18 @@ int main(int argc, char** argv)
     }
     
     Mat image;
-    image = imread( argv[1],1);
+    image = imread( argv[1],0);
     
     if(!image.data)
     {
        printf("No image data \n");
        return -1;
     }
-    
-    GaussianBlur(image, image, Size(5,5),0);
-    Canny(image, image, 50, 150);
+    Mat ceshi(200,200, CV_16SC4);
+    GaussianBlur(image, ceshi, Size(5,5),0);
+
+
+    Canny(ceshi, ceshi, 50, 150);
     namedWindow("Display Image", WINDOW_AUTOSIZE);
     imshow("Display Image", image);
     
