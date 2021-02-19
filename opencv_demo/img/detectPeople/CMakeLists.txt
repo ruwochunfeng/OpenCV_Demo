@@ -23,8 +23,6 @@ include_directories( /home/zhou/opencv/modules/stitching/include/)
 include_directories( /home/zhou/opencv/modules/video/include/)
 include_directories( /home/zhou/opencv/modules/videoio/include/)
 
-
-#add_executable(DisplayImage DisplayImage.cpp)
 add_executable(detectPeople DetectPeople.cpp)
 
 target_link_libraries(detectPeople ${OpenCV_LIBS})
