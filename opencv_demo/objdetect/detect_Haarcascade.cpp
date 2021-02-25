@@ -25,9 +25,15 @@ void detectAndDisplay(Mat frame)
 
    for(int i = 0; i< faces.size(); i++)
    {
-      Point center(faces[i].x + faces[i].width*0.5, faces[i].y+ faces[i].height *0.5);
+      //Point center(faces[i].x + faces[i].width*0.5, faces[i].y+ faces[i].height *0.5);
       
-      ellipse(frame,center,Size(faces[i].width*0.5,faces[i].height *0.5),1.1,3.2,1,Scalar(255,0,255),4,8,0);
+      Point center1(faces[i].x, faces[i].y);
+
+      Point center2(faces[i].x + faces[i].width, faces[i].y+ faces[i].height);
+      
+      //ellipse(frame,center1,center2,Size(faces[i].width*0.5,faces[i].height *0.5),1.1,3.2,1,Scalar(255,0,255),4,8,0);
+      
+      rectangle(frame, center1,center2,Scalar(255,0,255),4,8,0);
       Mat faceROI = frame_gray(faces[i]);
       std::vector<Rect> eyes;
       
