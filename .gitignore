@@ -27,6 +27,7 @@
 *.lib
 *.png
 *.pic
+*.jpg
 *.cmake
 Makefile
 CMakeFiles/
