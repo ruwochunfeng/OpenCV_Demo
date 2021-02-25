@@ -41,10 +41,12 @@ void detectAndDisplay(Mat frame)
       
       for(int j =0; j < eyes.size(); j++)
       {
-         Point center(faces[i].x+ eyes[j].x + eyes[j].width*0.5,faces[i].y+eyes[j].y+ eyes[j].height *0.5);
-         
-         int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
-         circle(frame, center, radius,Scalar(255,0,0),4,8,0);
+         //Point center(faces[i].x+ eyes[j].x + eyes[j].width*0.5,faces[i].y+eyes[j].y+ eyes[j].height *0.5);
+         Point center_eye1(faces[i].x+ eyes[j].x,faces[i].y+eyes[j].y);
+         Point center_eye2(faces[i].x+ eyes[j].x + eyes[j].width,faces[i].y+eyes[j].y+ eyes[j].height );
+         rectangle(frame, center_eye1,center_eye2,Scalar(0,255,255),4,8,0);
+         //int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
+         //circle(frame, center, radius,Scalar(255,0,0),4,8,0);
       }
    }
    imshow(window_name, frame);
