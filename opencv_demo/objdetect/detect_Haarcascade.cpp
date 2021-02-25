@@ -21,7 +21,7 @@ void detectAndDisplay(Mat frame)
    
    cvtColor(frame, frame_gray, COLOR_RGB2GRAY);
    equalizeHist(frame_gray,frame_gray);
-   face_cascade.detectMultiScale(frame_gray, faces, 1.1,2,0 | CV_HAAR_SCALE_IMAGE,Size(30,30));
+   face_cascade.detectMultiScale(frame_gray, faces, 1.1,2,0 | CASCADE_SCALE_IMAGE,Size(30,30));
 
    for(int i = 0; i< faces.size(); i++)
    {
@@ -31,7 +31,7 @@ void detectAndDisplay(Mat frame)
       Mat faceROI = frame_gray(faces[i]);
       std::vector<Rect> eyes;
       
-      eyes_cascade.detectMultiScale(faceROI, eyes, 1.1,2, CV_HAAR_SCALE_IMAGE,Size(30,30));
+      eyes_cascade.detectMultiScale(faceROI, eyes, 1.1,2, CASCADE_SCALE_IMAGE,Size(30,30));
       
       for(int j =0; j < eyes.size(); j++)
       {

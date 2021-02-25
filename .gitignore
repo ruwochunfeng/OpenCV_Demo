@@ -33,6 +33,8 @@ CMakeFiles/
 CMakeCache.txt
 bin/
 
+*.xml
+
 
 # Executables
 *.exe
