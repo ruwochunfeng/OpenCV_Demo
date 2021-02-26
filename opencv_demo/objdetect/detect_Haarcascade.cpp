@@ -34,21 +34,34 @@ void detectAndDisplay(Mat frame)
       //ellipse(frame,center1,center2,Size(faces[i].width*0.5,faces[i].height *0.5),1.1,3.2,1,Scalar(255,0,255),4,8,0);
       
       rectangle(frame, center1,center2,Scalar(255,0,255),4,8,0);
-      Mat faceROI = frame_gray(faces[i]);
-      std::vector<Rect> eyes;
+      //Mat faceROI = frame_gray(faces[i]);
+
       
-      eyes_cascade.detectMultiScale(faceROI, eyes, 1.1,2, CASCADE_SCALE_IMAGE,Size(30,30));
+      //eyes_cascade.detectMultiScale(faceROI, eyes, 1.1,2,0 | CASCADE_SCALE_IMAGE,Size(30,30));
       
-      for(int j =0; j < eyes.size(); j++)
+    /*  for(int j =0; j < eyes.size(); j++)
       {
+         printf("you shuju");
          //Point center(faces[i].x+ eyes[j].x + eyes[j].width*0.5,faces[i].y+eyes[j].y+ eyes[j].height *0.5);
          Point center_eye1(faces[i].x+ eyes[j].x,faces[i].y+eyes[j].y);
          Point center_eye2(faces[i].x+ eyes[j].x + eyes[j].width,faces[i].y+eyes[j].y+ eyes[j].height );
          rectangle(frame, center_eye1,center_eye2,Scalar(0,255,255),4,8,0);
          //int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
          //circle(frame, center, radius,Scalar(255,0,0),4,8,0);
-      }
+      }*/
    }
+      std::vector<Rect> eyes;
+      eyes_cascade.detectMultiScale(frame_gray, eyes, 1.1,2,0 | CASCADE_SCALE_IMAGE,Size(30,30));
+      for(int j =0; j < eyes.size(); j++)
+      {
+         printf("you shuju");
+         //Point center(faces[i].x+ eyes[j].x + eyes[j].width*0.5,faces[i].y+eyes[j].y+ eyes[j].height *0.5);
+         Point center_eye1(eyes[j].x,eyes[j].y);
+         Point center_eye2(eyes[j].x + eyes[j].width,eyes[j].y+ eyes[j].height );
+         rectangle(frame, center_eye1,center_eye2,Scalar(0,255,255),4,8,0);
+         //int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
+         //circle(frame, center, radius,Scalar(255,0,0),4,8,0);
+      }
    imshow(window_name, frame);
 }
 int main(int argc, char** argv)
