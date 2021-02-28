@@ -69,8 +69,8 @@ int main(int argc, char** argv)
 
    Mat frame;
    VideoCapture cap;
-   //cap.open("/home/zhou/OpenCV_Demo/opencv_demo/objdetect/shipin.mp4");
-   cap.open("/dev/video0");
+   cap.open(0);
+   
    
    if(!cap.isOpened())
    {
@@ -90,7 +90,9 @@ int main(int argc, char** argv)
          return -1;      
       }
       detectAndDisplay(frame);
-      waitKey(0);
+      
+      int c = waitKey(10);
+      if((char)c == 'c') {break;}
    }
    
    return 0;
