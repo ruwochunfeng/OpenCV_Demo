@@ -12,8 +12,8 @@ int main(int argc, char** argv)
 
     }
     
-    int kernel_size = 3;
-    int scale = 1;
+    int kernel_size = 7;
+    int scale = 2;
     int delta = 0;
     int depth = CV_16S;
     
